@@ -55,6 +55,14 @@ export class GuiModel {
                             "height": 4,
                             "maxLength": 5000,
                         },
+						{ 
+							"id": "group", 
+							"type": "autocomplete", 
+							"name": "Group",
+							"url": "/group", 
+							"form": "GroupForm", 
+							"width": 2 
+						},
                         {
                             "type": "deleteButton",
                             "name": "Delete"
@@ -124,9 +132,32 @@ export class GuiModel {
                         }
                     ]
                 },
-				
+				{ 
+					"id": "GroupForm",
+					"title": "Group",
+					"url": "/group", "formFieldList": [
+						{ 
+							"id": "name",
+							"type": "text",
+							"name": "GroupName",
+							"width": 2,
+							"required": true
+						 }, { 
+						 	"type": "deleteButton",
+							"name": "Delete" 
+						 }, { 
+						 	"type": "cancelButton",
+							"name": "Cancel"
+						 }, { 
+						 	"type": "okButton", 
+							"name": "Ok" 
+						} 
+					] 
+				}
             ],
-            "pageList": [
+            
+			
+			"pageList": [
                 {
                     "id": "mainmenu",
                     "name": "MainMenu",
@@ -182,8 +213,7 @@ export class GuiModel {
                     ]
                 },
 				
-                {
-                    "id": "locationspage",
+                {"id": "locationspage",
                     "elementList": [
                         {
                             "type": "backbutton",
@@ -209,6 +239,7 @@ export class GuiModel {
                             }
                         },
                     ]
+                    
                 },
 				
 				{ 	"id": "groupspage",
@@ -219,10 +250,23 @@ export class GuiModel {
 							"name": "NewGroup",
 							"icon": "fa-weixin",
 							"color": "green",
-							"form": { "form": "GroupForm" } 
-						} 
+							"form": { "form": "GroupForm" 
+							} 
+						}, 
+						{
+							"type": "list",
+							"icon": "fa-weixin",
+							"color": "wisteria",
+							"search": true,
+							"url": "/group",
+							"form": {
+							"form": "GroupForm"
+							}
+						},
 					] 
 				}
+				
+				
             ]
         }
     };
