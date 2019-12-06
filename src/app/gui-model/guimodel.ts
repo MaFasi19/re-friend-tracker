@@ -64,6 +64,15 @@ export class GuiModel {
 							"width": 2 
 						},
                         {
+                            "id":   "activity",
+                            "type": "autocomplete",
+                            "name": "Activity",
+                            "url": "/activity",
+                            "form": "AddActivityForm",
+                            "width": 2
+                        },
+
+                        {
                             "type": "deleteButton",
                             "name": "Delete"
                         },
@@ -89,6 +98,14 @@ export class GuiModel {
                             "width": 2,
                             "required": true
                         },
+                        {
+                            "id": "comment",
+                            "type": "text",
+                            "name": "Comments",
+                            "width": 2,
+                            "height": 4,
+                            "maxLength": 5000,
+                        },						
                         {
                             "type": "deleteButton",
                             "name": "Delete"
@@ -119,6 +136,21 @@ export class GuiModel {
                             "width": 2
                         },
                         {
+                            "id": "activitydate",
+                            "type": "date",
+                            "name": "ActivityDate",
+                            "width": 2
+                        },
+
+                        {
+                            "id": "comment",
+                            "type": "text",
+                            "name": "Comments",
+                            "width": 2,
+                            "height": 4,
+                            "maxLength": 5000,
+                        },		
+                        {
                             "type": "deleteButton",
                             "name": "Delete"
                         },
@@ -142,7 +174,22 @@ export class GuiModel {
 							"name": "GroupName",
 							"width": 2,
 							"required": true
-						 }, { 
+						 },
+                        {
+                            "id": "creadate",
+                            "type": "date",
+                            "name": "CreationDate",
+                            "width": 2
+                        },
+						 
+						 {
+                            "id": "comment",
+                            "type": "text",
+                            "name": "Comments",
+                            "width": 2,
+                            "height": 4,
+                            "maxLength": 5000,
+                        }, { 
 						 	"type": "deleteButton",
 							"name": "Delete" 
 						 }, { 
@@ -182,6 +229,13 @@ export class GuiModel {
 							"icon": "fa-weixin",
 							"color": "wisteria",
 							"page": "groupspage",
+						},
+						{ 
+							"type": "button",
+							"name": "Activity",
+							"icon": "fa-running",
+							"color": "orange",
+							"page": "activitypage",
 						},
                     ]
                 },
@@ -264,7 +318,30 @@ export class GuiModel {
 							}
 						},
 					] 
-				}
+				},
+				{ 	"id": "activitypage",
+					 "elementList": [ 
+					 	{ 	"type": "backbutton",
+						},
+						{ 	"type": "newButton",
+							"name": "NewActivity",
+							"icon": "fa-running",
+							"color": "orange",
+							"form": { "form": "AddActivityForm" 
+							} 
+						}, 
+						{
+							"type": "list",
+							"icon": "fa-running",
+							"color": "orange",
+							"search": true,
+							"url": "/activity",
+							"form": {
+							"form": "AddActivityForm"
+							}
+						},
+					] 
+				},
 				
 				
             ]
