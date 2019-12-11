@@ -89,7 +89,7 @@ export class GuiModel {
                 {
                     "id": "LocationForm",
                     "title": "Location",
-                    "url": "/location",
+                    "url": "/location/:locationKey/activity",
                     "formFieldList": [
                         {
                             "id": "name",
@@ -98,6 +98,15 @@ export class GuiModel {
                             "width": 2,
                             "required": true
                         },
+						 {
+                            "id":   "activity",
+                            "type": "autocomplete",
+                            "name": "Activity",
+                            "url": "/activity",
+                            "form": "AddActivityForm",
+                            "width": 2
+                        },
+
                         {
                             "id": "comment",
                             "type": "text",
@@ -254,20 +263,54 @@ export class GuiModel {
                                 "form": "FriendForm"
                             }
                         },
-                        {
+                    {
                             "type": "list",
                             "icon": "fa-user",
                             "color": "blue",
                             "search": true,
                             "url": "/friend",
+                            "page": "fpage",
+                        },
+                    ]
+                },
+                {
+                    "id": "fpage",
+                    "elementList": [
+                        {
+                            "type": "backbutton",
+                        },
+                        {
+                            "type": "newButton",
+                            "name": "EditFriend",
+                            "icon": "fa-user",
+                            "color": "green",
+                            "form": {
+                                "form": "FriendForm"
+                            }
+                        },
+						{
+                            "type": "newButton",
+                            "name": "AddActivity",
+                            "icon": "fa-calendar",
+                            "color": "green",
+                            "form": {
+                                "form": "AddActivityForm",
+                            }
+                        },
+                        {
+                            "type": "list",
+                            "icon": "fa-user",
+                            "color": "orange",
+                            "search": true,
+                            "url": "/friend/:friendKey/activity",
                             "form": {
                                 "form": "FriendForm"
                             }
                         },
                     ]
-                },
-				
-                {"id": "locationspage",
+                },				
+                {
+				"id": "locationspage",
                     "elementList": [
                         {
                             "type": "backbutton",
@@ -288,6 +331,42 @@ export class GuiModel {
                             "color": "blue",
                             "search": true,
                             "url": "/location",
+                            "page": "Lpage",
+                        },
+                    ]
+                    
+                },
+				{
+				"id": "Lpage",
+                    "elementList": [
+                        {
+                            "type": "backbutton",
+                        },
+                        {
+                            "type": "editButton",
+                            "name": "EditLocation",
+                            "icon": "fa-home",
+                            "color": "green",
+                            "width": 2,
+                            "form": {
+                                "form": "LocationForm"
+                            }
+                        },
+						{
+                            "type": "newButton",
+                            "name": "AddActivity",
+                            "icon": "fa-calendar",
+                            "color": "green",
+                            "form": {
+                                "form": "AddActivityForm",
+                            }
+                        },
+                        {
+                            "type": "list",
+                            "icon": "fa-home",
+                            "color": "blue",
+                            "search": true,
+                            "url": "/location/:locationKey/activity",
                             "form": {
                                 "form": "LocationForm"
                             }
